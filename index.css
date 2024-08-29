@@ -1,0 +1,462 @@
+
+
+
+
+
+
+
+
+
+/* Defaults */
+* { 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+/* Presets */
+:root {
+      --primary-color:#F5F5F5;
+      --secondary-color:#E2E2E2;
+      --accent-color:#808080;
+      --white-color:#ffff;
+}
+
+/* Buttons  styling */
+.custom-button {
+      width: 120px;
+      height: 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      border: none;
+      color: var(--accent-color);
+      font-weight: bold;
+}
+
+body {
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+}
+
+header{
+      position: sticky;
+      display: flex;
+      justify-content: space-between;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      background-color: #ffffff;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+      z-index: 15;
+      border: 1.5px solid var(--secondary-color);
+}
+
+/* Logo styles */
+#logo-black {
+      display: block;
+      width: 25px;
+}
+  
+#logo-white {
+      display: none;
+      width: 25px;
+}
+
+/* Header hover styles */
+header:hover {
+      background-color: black;
+}
+
+/* Hamburger menu styles */
+.hamburger-menu, .close-menu {
+      position: absolute;
+      top: 40%;
+      right: 30px;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 2000; 
+      padding-right: 20px;
+}
+
+.close-menu {
+      display: none;
+      font-size: 30px;
+      color: var(--accent-color);
+}
+
+.menu-container.show ~ .hamburger-menu {
+      display: none;
+}
+ 
+.menu-container.show ~ .close-menu {
+      display: block;
+}
+
+.hamburger-menu .line {
+      background-color: var(--accent-color);
+      height: 0.9px;
+      width: 100%;
+      display: block;
+      position: absolute;
+      transition: all 0.3s ease;
+}
+ 
+.amburger-menu .line:nth-child(1) {
+      top: 0;
+}
+ 
+.hamburger-menu .line:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+}
+ 
+.hamburger-menu .line:nth-child(3) {
+      bottom: 0;
+}
+ 
+header:hover .hamburger-menu .line {
+      background-color: white;
+}
+
+.menu-container {
+      display: none;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: white;
+      width: 40%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+}
+ 
+.menu-container.show {
+      display: block;
+      opacity: 1;
+      padding: 80px 60px;
+}
+ 
+.menu-container a {
+      display: block;
+      padding: 15px 0px;
+      text-decoration: none;
+      color: var(--accent-color);
+      position: relative;
+}
+ 
+.menu-container a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0.2px;
+      width: 8%;
+      background-color:var(--accent-color);
+      transition: width 0.3s ease;
+}
+ 
+.menu-container a:hover::after {
+      width: 33%;
+}
+
+  
+/* Main container - Contains all containers */
+.main-container {
+      background-color: #F5F5F5;
+      max-width: 1140px;
+      margin: auto;
+}
+
+
+/* Hero container Section */
+.hero-container {
+      background-color: var(--secondary-color);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.hero-context-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 500px;
+      padding: 20px;
+      color: var(--accent-color);
+}
+
+.introduction-text {
+      text-align: center;
+}
+
+
+/* Image containers Section - Heading - Title - Descriptions - Buttons */
+.image-container-section {
+      display: flex;
+      flex-direction: column;
+      gap: 5em;
+      padding: 3em 0 4em 0;
+}
+
+.image-container-section > div {
+      display: flex;
+      align-items: center;
+} 
+
+.image-container-section > div:nth-child(2){
+      flex-direction: row-reverse;
+}
+
+.image-container {
+      background-color: var(--accent-color);
+      width: 50%;
+      height: 300px;
+}
+
+.image-context {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 20px;
+      padding: 0 40px 0 60px;
+      max-width: 450px;
+      color: var(--accent-color);
+}
+
+.image-container-section > div > .image-context > input {
+      background-color: var(--accent-color);
+      color: var(--primary-color);
+} 
+
+
+/* Masonry layout section 🧱 */
+.masonry-layout-container {
+      position: relative; /* This makes the overlay-modal position absolute within this container */
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+      gap: 3em; 
+      width: 100%;
+      margin: auto;
+      overflow: hidden;
+      background-color: var(--secondary-color);
+}
+  
+.masonry-container {
+      background-color: var(--accent-color);
+      width: 210px;
+      padding: 20px;
+      color: var(--primary-color);
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+}
+  
+.top-left {
+      grid-column: 2;
+      grid-row: 2/6;
+} 
+  
+.top-right {
+      grid-column: 4;
+      grid-row: 2/6;
+}
+  
+.bottom-left {
+      grid-column: 2;
+      grid-row: 6/9;
+      transform: translateX(-30px);
+}
+  
+.bottom-right {
+      grid-column: 4;
+      grid-row: 6/9;
+      width: 350px;
+      transform: translateX(-60px);
+}
+  
+.bottom-center {
+      grid-column: 3;
+      grid-row: 4/8;
+      transform: translate(80px, 40px );
+}
+
+  
+/* Masonry dropdown container 💧🔽 */
+.dropdown-container {
+      position: relative;
+      display: flex;
+      transform: translateY(-20px);
+      grid-column: 3; 
+      grid-row: 2;
+      width: 350px;
+      background-color: var(--primary-color);
+      border: 1px solid var(--accent-color);
+      cursor: pointer;
+      font-size: 16px;
+      z-index: 2; 
+}
+
+.dropdown-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10px;
+}
+
+.dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      border: 1px solid var(--accent-color);
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      text-align: center;
+}
+
+.dropdown-item {
+      padding: 10px;
+      border-bottom: 1px solid var(--accent-color);
+}
+
+.dropdown-item:last-child {
+      border-bottom: none;
+}
+
+.dropdown-item:hover {
+      background-color: #f9f9f9;
+}
+
+/* Overlay modal when select on item in dropdown container */
+.overlay-modal {
+      display: none;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); 
+      z-index: 9; 
+      justify-content: center;
+      align-items: center;
+}
+
+/* Modal content - centered within the overlay modal */
+.modal-content {
+      background-color: var(--primary-color);
+      width: 80%;
+      height: 80%;
+      overflow-y: auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000; 
+      z-index: 10;
+}
+
+.close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 50px;
+      cursor: pointer;
+      color: #333;
+}
+
+
+/* 3 Context containers with links */
+.context-containers-section {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 40px;
+      padding: 60px;
+}
+
+.context-containers-section > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--accent-color);
+      width: 300px;
+      padding: 20px ;
+      color: var(--primary-color);
+}
+
+.context-containers-section > div > .context > p {
+      padding: 10px 0 20px 0;
+}
+
+.context-containers-section > div > input {
+      background-color: var(--primary-color);
+}
+
+.diagonal-containers-section {
+      position: relative;
+      height: 800px;
+      overflow: hidden;
+      justify-content: center;
+      display: flex;
+      margin: 60px;
+      padding: 60px;
+}
+
+.diagonal-background {
+      width: 800px;
+      height: 500px;
+      overflow: hidden;
+      background-color: var(--secondary-color);
+}
+
+.diagonal-container {
+      position: absolute;
+      width: 200px;
+      height: 150px;
+      background: rgba(0, 0, 255, 0.5); 
+      transform-origin: top left;
+}
+
+.diagonal-container:nth-child(1) {
+      top: 0;
+      left: 0;
+      background-color: var(--accent-color);
+}
+
+.diagonal-container:nth-child(2) {
+      top: 100px;
+      left: 150px;
+      background-color: var(--white-color);
+}
+
+.diagonal-container:nth-child(3) {
+      top: 200px;
+      left: 300px;
+      background-color: var(--accent-color);
+}
+
+.diagonal-container:nth-child(4) {
+      top: 300px;
+      left: 450px;
+      background-color: var(--white-color);
+}
+
+.diagonal-container:nth-child(5) {
+      top: 400px;
+      left: 600px;
+      background-color: var(--accent-color);
+}
+
+.diagonal-container:nth-child(6) {
+      top: 500px;
+      left: 750px;
+      background-color: var(--white-color);
+}
